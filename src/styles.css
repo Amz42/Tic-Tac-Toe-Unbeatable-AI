@@ -1,0 +1,281 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+:root {
+  --cell-size: 100px;
+  --mark-size: calc(var(--cell-size) * 0.7);
+}
+
+body {
+  margin: 0;
+  background-color: black;
+}
+
+.board {
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  justify-items: center;
+  align-items: center;
+  grid-template-columns: repeat(3, auto);
+}
+
+.cell {
+  width: var(--cell-size);
+  height: var(--cell-size);
+  border: 2px dotted white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+}
+
+.cell:first-child,
+.cell:nth-child(2),
+.cell:nth-child(3) {
+  border-top: none;
+}
+
+.cell:nth-child(3n + 1) {
+  border-left: none;
+}
+
+.cell:nth-child(3n + 3) {
+  border-right: none;
+}
+
+.cell:last-child,
+.cell:nth-child(8),
+.cell:nth-child(7) {
+  border-bottom: none;
+}
+
+.cell.x,
+.cell.circle {
+  cursor: not-allowed;
+}
+
+.cell.x::before,
+.cell.x::after {
+  background-color: white;
+}
+.cell.circle::before {
+  background-color: white;
+}
+
+.board.x .cell:not(.x):not(.circle):hover::before,
+.board.x .cell:not(.x):not(.circle):hover::after,
+.board.circle .cell:not(.x):not(.circle):hover::before {
+  background-color: lightslategrey;
+}
+
+.cell.x::before,
+.cell.x::after,
+.board.x .cell:not(.x):not(.circle):hover::before,
+.board.x .cell:not(.x):not(.circle):hover::after {
+  content: "";
+  position: absolute;
+  width: calc(var(--mark-size) * 0.15);
+  height: var(--mark-size);
+}
+
+.cell.x::before,
+.board.x .cell:not(.x):not(.circle):hover::before {
+  transform: rotate(45deg);
+}
+
+.cell.x::after,
+.board.x .cell:not(.x):not(.circle):hover::after {
+  transform: rotate(-45deg);
+}
+
+.cell.circle::before,
+.cell.circle::after,
+.board.circle .cell:not(.x):not(.circle):hover::before,
+.board.circle .cell:not(.x):not(.circle):hover::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+}
+
+.cell.circle::before,
+.board.circle .cell:not(.x):not(.circle):hover::before {
+  width: var(--mark-size);
+  height: var(--mark-size);
+}
+
+.cell.circle::after,
+.board.circle .cell:not(.x):not(.circle):hover::after {
+  width: calc(var(--mark-size) * 0.7);
+  height: calc(var(--mark-size) * 0.7);
+  background-color: black;
+}
+
+.winning-message {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.9);
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 2rem;
+  font-weight: bold;
+  flex-direction: column;
+  font-family: "Bungee Outline", cursive;
+  /* font-family: "Audiowide", cursive; */
+}
+
+.winning-message button {
+  font-size: 2rem;
+  /* font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif; */
+  font-family: "Audiowide", cursive;
+  /* background-color: white; */
+  /* border: 1px solid black; */
+  color: white;
+  /* font-weight: bold; */
+  padding: 0.25em 0.5em;
+  cursor: pointer;
+}
+
+.winning-message button:hover {
+  /* background-color: black; */
+  /* color: white; */
+  /* border-color: white; */
+}
+
+.winning-message.show {
+  display: flex;
+}
+
+/* Button style */
+button#restartButton {
+  border: none;
+  border-radius: 2px;
+  padding: 10px 10px;
+  font-size: 2rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  color: white;
+  background-color: #2196f3;
+  box-shadow: 0 0 4px #999;
+  outline: none;
+}
+
+/* Ripple effect */
+/*
+.ripple {
+  background-position: center;
+  transition: background 0.5s;
+}
+.ripple:hover {
+  background: #47a7f5 radial-gradient(circle, transparent 1%, #5f9ea0 1%)
+    center/15000%;
+}
+.ripple:active {
+  background-color: #6eb9f7;
+  background-size: 100%;
+  transition: background 0s;
+}
+*/
+
+/* SOUND BUTTON */
+.sound-div {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 1;
+  right: 0;
+  bottom: 1;
+  margin-right: 1.5rem;
+  margin-top: 1.5rem;
+  /* background-color: rgba(255, 255, 255, 0.9); */
+  justify-content: center;
+  align-items: center;
+  /* color: black; */
+  /* font-size: 2rem; */
+  /* font-weight: bold; */
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.sound-div .icon i {
+  color: white;
+  font-size: 30px;
+}
+
+/* DEVELOPER BUTTON */
+.developer-route-div {
+  display: flex;
+  position: fixed;
+  top: 1;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin-bottom: 1rem;
+  background-color: rgba(0, 0, 0, 0.9);
+  /* justify-content: center; */
+  align-items: center;
+  /* color: black; */
+  /* font-size: 2rem; */
+  /* font-weight: bold; */
+  flex-direction: column;
+  /* font-family: "Bungee Outline", cursive; */
+}
+
+.developer-button {
+  display: inline-block;
+  height: 60px;
+  width: 60px;
+  /* float: left; */
+  margin: 0 5px;
+  /* color: black; */
+  background: #fff;
+  border-radius: 50px;
+  /* font-family: cursive; */
+  cursor: pointer;
+  box-shadow: 0px 10px 10px rgba(255, 255, 255, 0);
+  overflow: hidden;
+  transition: all 0.2s;
+  outline: none;
+}
+
+.developer-button:hover {
+  width: 200px;
+}
+
+.developer-button .icon {
+  display: inline-block;
+  height: 60px;
+  width: 60px;
+  text-align: center;
+  border-radius: 50px;
+  box-sizing: border-box;
+  line-height: 60px;
+}
+
+.developer-button .icon i {
+  color: black;
+  font-size: 25px;
+  line-height: 60px;
+}
+
+.developer-button span {
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 60px;
+  margin-left: 1px;
+  /* margin-bottom: 30px; */
+  color: black;
+  font-family: "Audiowide", cursive;
+}
