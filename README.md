@@ -9,7 +9,7 @@ Go, Play & Try to beat the AI 👍. [Play here](https://csb-8pbm8-9fgxjiyey.verc
 
 ## About Mini-Max Algorithm in Artificial Intelligence
 - It's a recursive backtracking algorithm which is used in decision-making and game theory. It provides an optimal move for the player assuming that opponent is also playing optimally.
-- It's mostly used for game playing in AI. Such as Chess, Checkers, tic-tac-toe, go, and various tow-players game. It computes the minimax decision for the current state.
+- It's mostly used for game playing in AI. Such as Chess, Checkers, tic-tac-toe, go, and various two-players game. It computes the minimax decision for the current state.
 - In this algorithm two players play the game, one is called MAX and other is called MIN.
 - Both the players fight it as the opponent player gets the minimum benefit while they get the maximum benefit.
 - Both Players of the game are opponent of each other, where MAX will select the maximized value and MIN will select the minimized value.
