@@ -1,4 +1,5 @@
 # Tic-Tac-Toe-Unbeatable-AI
+> Wisdom & Algorithm make an Unbeatable combination...
 
 It's a Tic-Tac-Toe Game powered with Mini-Max Algorithm.
 Go, Play & Try to beat the AI 👍. [Play here](https://csb-8pbm8-9fgxjiyey.vercel.app/)
@@ -6,6 +7,9 @@ Go, Play & Try to beat the AI 👍. [Play here](https://csb-8pbm8-9fgxjiyey.verc
 ## Created By:
 - [Aman Gupta](https://github.com/Amz42) (Myself)
 - [Aman Chauhan](https://github.com/amanthakur1)
+
+### Game ScreenShot:
+![](https://res.cloudinary.com/amz42/image/upload/v1609960238/personal/Screenshot_827_axbzjt.png)
 
 ## About Mini-Max Algorithm in Artificial Intelligence
 - It's a recursive backtracking algorithm which is used in decision-making and game theory. It provides an optimal move for the player assuming that opponent is also playing optimally.
